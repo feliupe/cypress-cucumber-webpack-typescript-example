@@ -3,18 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/node": "^10.12.11"
+    "@types/node": "^10.12.11",
+    "terser-webpack-plugin": "^5.1.1"
   },
   "scripts": {
-    "test": "cypress run --spec \"**/*.feature\"",
+    "test": "cypress open",
     "test:all": "cypress run --spec \"**/*.features\""
   },
   "devDependencies": {
-    "@cypress/webpack-preprocessor": "^4.0.2",
-    "cypress": "^3.4.1",
-    "cypress-cucumber-preprocessor": "latest",
-    "ts-loader": "^5.3.1",
-    "typescript": "^3.2.1",
-    "webpack": "^4.28.2"
+    "@cypress/webpack-preprocessor": "5.8.0",
+    "cypress": "7.3.0",
+    "cypress-cucumber-preprocessor": "2.5.0",
+    "path-browserify": "^1.0.1",
+    "ts-loader": "9.1.1",
+    "typescript": "^3.8.2",
+    "webpack": "5.3.0"
   }
 }

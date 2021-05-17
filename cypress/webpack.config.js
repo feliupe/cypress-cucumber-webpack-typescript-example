@@ -1,8 +1,11 @@
+const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
+  plugins: [new TerserPlugin()],
   resolve: {
-    extensions: [".ts", ".js"]
+    extensions: [".ts", ".js"],
   },
-  node: { fs: "empty", child_process: "empty", readline: "empty" },
+  resolve: { fallback: { path: require.resolve("path-browserify") } },
+  // node: { fs: "empty", child_process: "empty", readline: "empty" },
   module: {
     rules: [
       {
@@ -10,26 +13,26 @@ module.exports = {
         exclude: [/node_modules/],
         use: [
           {
-            loader: "ts-loader"
-          }
-        ]
+            loader: "ts-loader",
+          },
+        ],
       },
       {
         test: /\.feature$/,
         use: [
           {
-            loader: "cypress-cucumber-preprocessor/loader"
-          }
-        ]
+            loader: "cypress-cucumber-preprocessor/loader",
+          },
+        ],
       },
       {
         test: /\.features$/,
         use: [
           {
-            loader: "cypress-cucumber-preprocessor/lib/featuresLoader"
-          }
-        ]
-      }
-    ]
-  }
+            loader: "cypress-cucumber-preprocessor/lib/featuresLoader",
+          },
+        ],
+      },
+    ],
+  },
 };
